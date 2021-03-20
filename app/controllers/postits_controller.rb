@@ -21,7 +21,7 @@ class PostitsController < ApplicationController
     # Save and check if successful
     if @postit.save
       # Redirect to postits#index
-      redirect_to postits_path
+      redirect_to root_path
       # Flash with a nice message to confirm action success
       flash[:alert] = "Postit created Modafucka!"
     end
@@ -40,7 +40,7 @@ class PostitsController < ApplicationController
     # Update and check if successful
     if @postit.update(postit_params)
       # Redirect to postits#index
-      redirect_to postits_path
+      redirect_to root_path
       # Flash with a nice message to confirm action success
       flash[:alert] = "Postit updated Modafucka!"
     end
@@ -53,7 +53,7 @@ class PostitsController < ApplicationController
     # Destroy and check if successful
     if @postit.destroy
       # Redirect to postits#index
-      redirect_to postits_path
+      redirect_to root_path
       # Flash with a nice message to confirm action success
       flash[:alert] = "Postit destroyed Modafucka!"
     end
