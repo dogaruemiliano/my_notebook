@@ -1,5 +1,5 @@
 class PostitsController < ApplicationController
-  before_action :set_postit, only: [:edit, :update]
+  before_action :set_postit, only: [:edit, :update, :destroy]
 
   # Define a colors constant
   COLORS = ["#86A1DA", "#88D6BA", "#F23595", "#283139", "#FEE269"]
@@ -31,7 +31,7 @@ class PostitsController < ApplicationController
 
   def update
     # Set post using id from params (before_action :set_postit)
-    # Update and check if postit was updated
+    # Update and check if successful
     if @postit.update(postit_params)
       # Redirect to postits#index
       redirect_to postits_path
@@ -41,9 +41,14 @@ class PostitsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def show
+    # Set post using id from params (before_action :set_postit)
+    # Destroy and check if successful
+    if @postit.destroy
+      # Redirect to postits#index
+      redirect_to postits_path
+      # Flash with a nice message to confirm action success
+      flash[:alert] = "Postit destroyed Modafucka!"
+    end
   end
 
   def index
