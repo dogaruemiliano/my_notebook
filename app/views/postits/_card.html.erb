@@ -1,6 +1,8 @@
 <div class="postit" style="background-color: <%= postit.color %> !important ">
   <%= postit.description %>
-  <div>
-    <%= link_to 'Edit', edit_postit_path(postit) %>
+  <div class="links">
+    <%= link_to edit_postit_path(postit) do %>
+      <i class="fas fa-edit"></i>
+    <% end %>
   </div>
 </div>
